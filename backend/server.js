@@ -39,6 +39,12 @@ app.set('views', path.join(__dirname, 'views'))
 app.engine('html', require('ejs').renderFile)
 app.set('view engine', 'html')
 app.use(require('./app/routes'))
-app.listen(app.get('port'))
+
+app.listen(app.get('port'), () => {
+  console.log('****************************')
+  console.log('*    Starting Server')
+  console.log(`*    Port: ${process.env.PORT || 5000}`)
+  console.log(`*    NODE_ENV: ${process.env.NODE_ENV}`)
+})
 
 module.exports = app // for testing
