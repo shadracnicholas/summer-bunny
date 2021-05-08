@@ -10,8 +10,8 @@ const admin = require('firebase-admin')
 const serviceAccount = require('./serviceAccountKey.json')
 const path = require('path')
 
-// Setup express server port from ENV, default: 3000
-app.set('port', process.env.PORT || 3000)
+// Setup express server port from ENV, default: 5000
+app.set('port', process.env.PORT || 5000)
 
 // Enable only in development HTTP request logger middleware
 if (process.env.NODE_ENV === 'development') {
