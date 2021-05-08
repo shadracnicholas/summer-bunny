@@ -1,9 +1,7 @@
+import Signup from "./Signup";
+
 function App() {
-  return (
-    <>
-    <h1 className="text-xl">Test Tailwind CSS</h1>
-    </>
-  );
+  return <Signup />
 }
 
 export default App;
