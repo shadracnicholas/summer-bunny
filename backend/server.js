@@ -6,8 +6,6 @@ const compression = require('compression')
 const helmet = require('helmet')
 const cors = require('cors')
 const app = express()
-const admin = require('firebase-admin')
-const serviceAccount = require('./serviceAccountKey.json')
 const path = require('path')
 
 // Setup express server port from ENV, default: 5000
@@ -24,12 +22,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// Init Firebase
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: process.env.DB_URL
-})
-
 // Init all other stuff
 app.use(cors())
 app.use(compression())
@@ -42,7 +34,7 @@ app.use(require('./app/routes'))
 
 app.listen(app.get('port'), () => {
   console.log('****************************')
-  console.log('*    Starting Server')
+  console.log('*    Server Started')
   console.log(`*    Port: ${process.env.PORT || 5000}`)
   console.log(`*    NODE_ENV: ${process.env.NODE_ENV}`)
 })
